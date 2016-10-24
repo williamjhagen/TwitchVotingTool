@@ -1,0 +1,13 @@
+﻿<Application x:Class="Starboard.Remote.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:View="clr-namespace:Starboard.View" xmlns:Model="clr-namespace:Starboard.Model" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type Model:Player}">
+            <View:PlayerView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type Model:TimedText}">
+            <View:TimedTextControl />
+        </DataTemplate>
+    </Application.Resources>
+</Application>

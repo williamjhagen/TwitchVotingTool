@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Starboard.View.RaceSelectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Model="clr-namespace:Starboard.Model" xmlns:Converters="clr-namespace:Starboard.Converters" mc:Ignorable="d" 
+             d:DesignWidth="305" Height="35">
+    <UserControl.Resources>
+        <Converters:RaceTypeConverter x:Key="RaceConverter" />
+
+        <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="ContentTemplate">
+                <Setter.Value>                    
+                    <DataTemplate DataType="{x:Type Model:Race}">
+                        <Image Margin="3" Source="{Binding Converter={StaticResource RaceConverter}, ConverterParameter=black}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <UniformGrid x:Name="gridBase" Columns="5">
+        <RadioButton Click="RaceButtonClicked" IsChecked="True">
+            <x:Static Member="Model:Race.Unknown" />
+        </RadioButton>
+        <RadioButton Click="RaceButtonClicked" IsChecked="False">
+            <x:Static Member="Model:Race.Terran" />
+        </RadioButton>
+        <RadioButton Click="RaceButtonClicked">
+            <x:Static Member="Model:Race.Zerg" />
+        </RadioButton>
+        <RadioButton Click="RaceButtonClicked">
+            <x:Static Member="Model:Race.Protoss" />
+        </RadioButton>
+        <RadioButton Click="RaceButtonClicked">
+            <x:Static Member="Model:Race.Random" />
+        </RadioButton>
+    </UniformGrid>
+</UserControl>
