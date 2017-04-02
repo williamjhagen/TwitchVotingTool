@@ -129,8 +129,8 @@ namespace System.Net {
         }
         #region Public Methods
         public void Connect(string IrcServer, int IrcPort) {
-
-            GetConnectionIp(out IrcServer,out IrcPort, IrcChannel);
+            //no longer necessary after Twitch updated their API
+            //GetConnectionIp(out IrcServer,out IrcPort, IrcChannel);
             if (IrcServer == null)
             {
                 relay("Connection Status: Invalid channel name, waiting for user input", "Red");
